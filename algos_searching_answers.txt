@@ -1,0 +1,78 @@
+## Questions
+
+1. What is a real-life scenario that uses linear search? 
+
+There is a box of chocolate and there are 16 pieces which all look same but have different flavors in each piece. 
+I'm trying to find a strawberry flavor chocolate and start eating from the top left of the box until I find the strawberry flavored chocolate.
+
+2. What is a real-life scenario that uses binary search? 
+
+In a classroom where students are alphabetically lined up, I'm trying to find a student named 'Nicholas.' I divide the entire
+classroom into half and ask if each half of the group has Nicholas among the group. If one of the group says yes, I divide the 
+group into half again and ask the same question to each divided group. I repeat this process until I find 'Nicholas.'  
+
+3. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using linear search? 
+
+7
+
+4. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using binary search? 
+
+3
+
+5. Given an unsorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning.
+
+Linear search: Since the collection is unsorted, there is no way to use binary search since you cannot find the mid point.
+
+6. Given a sorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning.
+
+Binary search: Since the collection is sorted, you can find the mid point of the collection.  
+
+## Coding 
+
+1. 
+
+function findWord(collection, value){
+    var low = 1;
+    var high = collection.length;
+    
+    while(low <= high){
+        var mid = (low + high)/2; 
+			console.log('mid value is: ', mid);
+        if(collection[mid - 1] > value){
+            high = mid - 1;
+			console.log('high value is: ', high);
+        } else if ( collection[mid - 1] < value) {
+            low = mid + 1; 
+			console.log('low value is: ', low);
+        } else {
+            return mid; 
+        }
+    }
+    return -1;
+} 
+
+var myCollection = ['Albeit','Albatross','Bee','Belt','Become','Cider','Ceder'];
+findWord(myCollection, 'Albatross');
+
+
+2. 
+
+var linearSearch = function(collection, target){
+	var result = null;
+	for(var i=0; collection.length > i; i++){
+		var value = collection[i];
+		if(value === target){
+			result = i;
+			break;
+		}
+	}
+	return result;
+};
+
+
+
+
+
+
+
+
